@@ -31,10 +31,10 @@ public class TransactionEntity {
     @Column(name = "id")
     private Integer id;
 
-//    @JoinColumn(foreignKey = @ForeignKey(name = "id"), name = "senderUserId")
-//    private UserEntity senderUser;
-//    @JoinColumn(foreignKey = @ForeignKey(name = "id"), name = "receiverUserId")
-//    private UserEntity receiverUser;
+    @Column(name = "senderUserEmail")
+    private String senderUserEmail;
+    @Column(name = "receiverUserEmail")
+    private String receiverUserEmail;
 
     @Column(name = "amount")
     private BigDecimal amount;

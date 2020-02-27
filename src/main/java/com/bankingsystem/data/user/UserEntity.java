@@ -15,6 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.math.BigDecimal;
 import java.util.Set;
 
 @Entity
@@ -40,11 +41,8 @@ public class UserEntity {
     private String login;
     @Column(name = "password")
     private String password;
+    @Column(name = "balance")
+    private BigDecimal balance;
 
-//    @OneToMany(mappedBy = "senderUser", cascade = CascadeType.ALL)
-//    private Set<TransactionEntity> transactions;
-//
-//    @OneToMany(mappedBy = "receiverUser", cascade = CascadeType.ALL)
-//    private Set<TransactionEntity> transactions2;
 
 }
