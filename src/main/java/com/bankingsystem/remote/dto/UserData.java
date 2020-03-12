@@ -14,6 +14,7 @@ import java.math.BigDecimal;
 @Builder
 public class UserData {
 
+    private Integer id;
     private String firstName;
     private String lastName;
     private String email;

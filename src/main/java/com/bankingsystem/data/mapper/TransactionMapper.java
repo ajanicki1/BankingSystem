@@ -16,7 +16,6 @@ public class TransactionMapper {
         transactionData.setAmount(transactionEntity.getAmount());
         transactionData.setTransferTitle(transactionEntity.getTransferTitle());
 
-
         return transactionData;
     }
 
@@ -30,8 +29,5 @@ public class TransactionMapper {
                 .amount(transactionData.getAmount())
                 .transferTitle(transactionData.getTransferTitle())
                 .build();
-
     }
-
-
 }

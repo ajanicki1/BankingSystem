@@ -4,6 +4,7 @@ package com.bankingsystem.data.service;
 import com.bankingsystem.data.mapper.UserMapper;
 import com.bankingsystem.data.repository.UserRepository;
 import com.bankingsystem.data.user.UserEntity;
+import com.bankingsystem.domain.exception.UserExistException;
 import com.bankingsystem.remote.dto.UserData;
 import org.springframework.stereotype.Service;
 
@@ -28,12 +29,10 @@ public class UserService {
                 .map(userEntity -> userMapper.mapToUserData(userEntity));
     }
 
-    public UserData insertUserData(UserData userData) {
+    public UserData insertUserData(UserData userData) throws UserExistException {
         Optional<UserEntity> optionalUserEntity = userRepository.getByLogin(userData.getLogin());
-        if (optionalUserEntity.isPresent())
-        {
-            //TODO change this to throw exception
-            return userData;
+        if (optionalUserEntity.isPresent()) {
+            throw new UserExistException(String.format("User with %s already exist", userData.getLogin()));
         }
         UserEntity userEntity = userMapper.mapToUserEntity(userData);
         userEntity = userRepository.save(userEntity);

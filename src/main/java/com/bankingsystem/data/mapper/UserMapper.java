@@ -13,6 +13,7 @@ public class UserMapper {
     public UserData mapToUserData(UserEntity userEntity) {
         return UserData
                 .builder()
+                .id(userEntity.getId())
                 .firstName(userEntity.getFirstName())
                 .lastName(userEntity.getLastName())
                 .email(userEntity.getEmail())
@@ -25,6 +26,7 @@ public class UserMapper {
     public UserEntity mapToUserEntity(UserData userData) {
         return UserEntity
                 .builder()
+                .id(userData.getId())
                 .firstName(userData.getFirstName())
                 .lastName(userData.getLastName())
                 .email(userData.getEmail())
@@ -35,6 +37,7 @@ public class UserMapper {
     }
 
     public UserEntity mapToUserEntity(UserData userData, UserEntity userEntity) {
+        userEntity.setId(userEntity.getId());
         userEntity.setFirstName(userData.getFirstName());
         userEntity.setLastName(userData.getLastName());
         userEntity.setEmail(userData.getEmail());
